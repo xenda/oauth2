@@ -12,7 +12,7 @@ module OAuth2
       # in order to successfully verify your request for most OAuth 2.0
       # endpoints.
       def get_access_token(code, options={})
-        response = @client.request(@client.token_method, @client.access_token_url, access_token_params(code, options))
+        response = @client.request(@client.token_method, @client.access_token_url, access_token_params(code, options).to_query)
         parse_response(response)
       end
 
